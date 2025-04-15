@@ -33,3 +33,9 @@ class BasePage:
 
     def check_element(self, locator):
         return self.find_locator(locator).is_displayed()
+
+    def check_dzen(self, locator):
+        return WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
+
+    def wait_dzen(self, url):
+        return WebDriverWait(self.driver, 5).until(EC.url_to_be(url))

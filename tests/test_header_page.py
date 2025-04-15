@@ -25,7 +25,9 @@ class TestMainPage:
         dzen_page = DzenPage(driver)
         header_page.yandex_logo_click()
         header_page.go_to_new_tab()
-        time.sleep(5)
+        #time.sleep(5)
+        # Убрал sleep и добавил функцию ожидания открытия с expected_condition в базовый класс
+        header_page.wait_dzen(Urls.URL_dzen)
         current_url = header_page.get_current_url()
         assert current_url == Urls.URL_dzen and dzen_page.check_dzen_element_main_button()
 
